@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Karim Travel</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background-color: #0b1d3a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .carte {
+            width: 340px;
+            padding: 16px 16px 25px 16px;
+            background-color: #001f6b;
+            border: 3px solid gold;
+            border-radius: 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .logo {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+        }
+
+        p {
+            color: white;
+            margin: 14px 0 0 0;
+        }
+
+        .route {
+            position: relative;
+            height: 60px;
+            margin-top: 20px;
+            border-bottom: 6px solid #444444;
+        }
+
+        .voiture {
+            position: absolute;
+            bottom: 0;
+            left: -100px;
+            animation: rouler 4s linear infinite;
+        }
+
+        @keyframes rouler {
+            from {
+                left: -100px;
+            }
+
+            to {
+                left: 100%;
+            }
+        }
+
+        .tel {
+            margin: 20px 0 0 0;
+            font-size: 18px;
+        }
+
+        .bouton {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 30px;
+            background-color: gold;
+            color: #0b1d3a;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="carte">
+        <img class="logo" src="logo.jpeg" alt="Karim Travel">
+        <p>Service de transport privé haut de gamme</p>
+        <div class="route">
+            <svg class="voiture" width="100" height="50" viewBox="0 0 100 50">
+                <path d="M25 22 L35 8 H65 L78 22 Z" fill="gold" />
+                <rect x="5" y="22" width="90" height="16" rx="6" fill="gold" />
+                <path d="M32 20 L38 11 H48 V20 Z" fill="#001f6b" />
+                <path d="M52 20 V11 H63 L72 20 Z" fill="#001f6b" />
+                <circle cx="25" cy="39" r="8" fill="#222222" stroke="white" stroke-width="2" />
+                <circle cx="75" cy="39" r="8" fill="#222222" stroke="white" stroke-width="2" />
+            </svg>
+        </div>
+        <p class="tel">Tél : 78 522 12 66</p>
+        <a class="bouton"
+            href="https://wa.me/221785221266?text=Bonjour%20Karim%20Travel%2C%20je%20voudrais%20reserver%20une%20course.">Réserver
+            sur WhatsApp</a>
+    </div>
+</body>
+
+</html>
