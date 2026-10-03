@@ -4,200 +4,419 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thiam Peintre Auto - Medina Fall</title>
+    <title>Karim Travel - Transport Privé & Billetterie</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        :root {
+            --bg-deep: #060B18;
+            --card-navy: #0B1630;
+            --gold-accent: #E5C383;
+            --text-main: #FFFFFF;
+            --text-sub: #A3B4D5;
         }
 
         body {
-            background-color: #0f172a;
-            color: #f8fafc;
+            background-color: var(--bg-deep);
+            margin: 0;
+            padding: 20px 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-main);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
         }
 
-        .container {
-            background: linear-gradient(145deg, #1e293b, #0f172a);
-            border-radius: 20px;
-            padding: 30px;
-            max-width: 450px;
+        .single-page-card {
             width: 100%;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-            border: 1px solid #334155;
+            max-width: 480px;
+            background: linear-gradient(135deg, var(--card-navy) 0%, #050B19 100%);
+            border: 2px solid var(--gold-accent);
+            border-radius: 24px;
+            padding: 30px 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+            box-sizing: border-box;
+        }
+
+        /* En-tête de la carte */
+        .header-section {
             text-align: center;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        .logo-box {
-            width: 140px;
-            height: 140px;
-            margin: 0 auto 20px auto;
-            border-radius: 50%;
-            background: radial-gradient(circle, #0284c7 0%, #0f172a 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 4px solid #38bdf8;
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
-            animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .logo-icon {
-            width: 80px;
-            height: 80px;
-            fill: #ffffff;
-        }
-
-        .badge-location {
-            background-color: #0284c7;
-            color: #ffffff;
-            padding: 6px 16px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-radius: 20px;
-            letter-spacing: 1.5px;
-            display: inline-block;
-            margin-bottom: 12px;
-        }
-
-        h1 {
-            font-size: 1.9rem;
-            color: #ffffff;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-        }
-
-        .phone-number {
-            font-size: 1.3rem;
-            color: #38bdf8;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .services-card {
-            background-color: #1a2234;
-            border: 1px solid #2d3748;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: left;
             margin-bottom: 25px;
         }
 
-        .services-card h3 {
-            font-size: 1rem;
-            color: #f1f5f9;
-            margin-bottom: 12px;
+        .logo-img {
+            max-width: 160px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .company-name {
+            color: var(--gold-accent);
+            font-size: 34px;
+            /* Agrandissement du nom */
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border-bottom: 2px solid #0284c7;
-            padding-bottom: 5px;
-            display: inline-block;
+            letter-spacing: 2.5px;
+            margin: 0;
+            line-height: 1.1;
         }
 
-        .services-card ul {
-            list-style: none;
+        .company-sub {
+            font-size: 13px;
+            text-transform: uppercase;
+            color: var(--text-sub);
+            margin-top: 6px;
+            margin-bottom: 12px;
+            letter-spacing: 1.5px;
+            font-weight: 600;
         }
 
-        .services-card li {
-            font-size: 0.95rem;
-            color: #cbd5e1;
-            margin-bottom: 10px;
+        .tagline {
+            font-size: 15px;
+            font-style: italic;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        /* Zone Téléphone */
+        .reservation-box {
+            background: rgba(229, 195, 131, 0.08);
+            border-top: 1px solid rgba(229, 195, 131, 0.3);
+            border-bottom: 1px solid rgba(229, 195, 131, 0.3);
+            padding: 15px 10px;
+            text-align: center;
+            margin-bottom: 25px;
+            border-radius: 8px;
+        }
+
+        .res-label {
+            color: var(--gold-accent);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .phone-number {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--text-main);
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        /* Badges de fonctionnalités agrandis */
+        .features-row {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 14px 8px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(229, 195, 131, 0.15);
+        }
+
+        .feature-badge {
             display: flex;
             align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            /* Taille augmentée */
+            font-weight: 700;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .services-card li::before {
-            content: "🎨";
-            margin-right: 10px;
-            font-size: 1.1rem;
+        .dot-surete {
+            width: 11px;
+            height: 11px;
+            background-color: #3B82F6;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #3B82F6;
+        }
+
+        .dot-ponctualite {
+            width: 11px;
+            height: 11px;
+            background-color: #10B981;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #10B981;
+        }
+
+        .star-confort {
+            color: var(--gold-accent);
+            font-size: 18px;
+        }
+
+        /* Formulaire de réservation & Informations personnelles */
+        .form-section {
+            border-top: 1px dashed rgba(229, 195, 131, 0.3);
+            padding-top: 25px;
+        }
+
+        .section-title {
+            color: var(--gold-accent);
+            font-size: 16px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 1.5px;
+            font-weight: 800;
+        }
+
+        .form-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .control-group label {
+            color: var(--text-sub);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-weight: 600;
+        }
+
+        .control-group input,
+        .control-group select {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(229, 195, 131, 0.25);
+            background: var(--bg-deep);
+            color: var(--text-main);
+            font-size: 14px;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .control-group input:focus,
+        .control-group select:focus {
+            border-color: var(--gold-accent);
+        }
+
+        .row-two {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        /* Boutons d'action */
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+            box-sizing: border-box;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .btn-reserve {
+            background-color: var(--gold-accent);
+            color: var(--bg-deep);
         }
 
         .btn-whatsapp {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background-color: #eab308;
-            color: #000000;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 1.1rem;
-            padding: 16px 24px;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(234, 179, 8, 0.4);
+            background-color: #25D366;
+            color: #FFFFFF;
         }
 
-        .btn-whatsapp:hover {
-            background-color: #facc15;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(234, 179, 8, 0.6);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes popIn {
-            from {
-                transform: scale(0.5);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
+        .btn:hover {
+            opacity: 0.95;
+            transform: translateY(-1px);
         }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
-        <img src="logo.jpeg" alt="Logo de l'entreprise" style="max-width: 150px; height: auto;">
-        <div class="logo-box">
-            <svg class="logo-icon" viewBox="0 0 24 24">
-                <path
-                    d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z" />
-            </svg>
+    <div class="single-page-card">
+
+        <!-- En-tête principal -->
+        <div class="header-section">
+            <img src="karim travel.png" alt="Karim Travel Logo" class="logo-img">
+            <h1 class="company-name">KARIM TRAVEL</h1>
+            <div class="company-sub">Private Transport Company</div>
+            <div class="tagline">« Your Destination, Our Priority »</div>
         </div>
 
-        <span class="badge-location">Medina Fall</span>
-        <h1>THIAM PEINTRE</h1>
-        <p class="phone-number">+221 78 749 16 10</p>
-
-        <div class="services-card">
-            <h3>Nos Services Professionnels</h3>
-            <ul>
-                <li>Peinture complète & retouches carrosserie</li>
-                <li>Rénovation & traitement de surface</li>
-                <li>Polissage et finition haute brillance</li>
-                <li>Travail professionnel & garanti</li>
-            </ul>
+        <!-- Numéros de réservation -->
+        <div class="reservation-box">
+            <div class="res-label">Service Réservations 24h/7j</div>
+            <div class="phone-number">78 522 12 66</div>
         </div>
 
-        <a href="https://wa.me/221787491610" class="btn-whatsapp" target="_blank">
-            <span>Contactez-nous sur WhatsApp</span>
-        </a>
+        <!-- Badges de fonctionnalités agrandis -->
+        <div class="features-row">
+            <div class="feature-badge"><span class="dot-surete"></span> Sûreté</div>
+            <div class="feature-badge"><span class="dot-ponctualite"></span> Ponctualité</div>
+            <div class="feature-badge"><span class="star-confort">★</span> Confort</div>
+        </div>
+
+        <!-- Formulaire d'Informations Personnelles & Trajet sur la même page -->
+        <div class="form-section">
+            <div class="section-title">Réservation & Informations Client</div>
+
+            <form class="form-grid" onsubmit="event.preventDefault();">
+                <!-- Informations client -->
+                <div class="control-group">
+                    <label>Nom complet du passager *</label>
+                    <input type="text" placeholder="Prénom et Nom" required>
+                </div>
+
+                <div class="row-two">
+                    <div class="control-group">
+                        <label>Téléphone *</label>
+                        <input type="tel" placeholder="77 / 78 / 76..." required>
+                    </div>
+                    <div class="control-group">
+                        <label>N° CNI / Passeport</label>
+                        <input type="text" placeholder="Numéro de pièce">
+                    </div>
+                </div>
+
+                <div class="row-two">
+                    <div class="control-group">
+                        <label>Région d'origine *</label>
+                        <select required>
+                            <option value="">Sélectionner</option>
+                            <option>Dakar</option>
+                            <option>Thiès</option>
+                            <option>Diourbel</option>
+                            <option>Fatick</option>
+                            <option>Kaffrine</option>
+                            <option>Kaolack</option>
+                            <option>Kédougou</option>
+                            <option>Kolda</option>
+                            <option>Louga</option>
+                            <option>Matam</option>
+                            <option>Saint-Louis</option>
+                            <option>Sédhiou</option>
+                            <option>Tambacounda</option>
+                            <option>Ziguinchor</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <label>Région de destination *</label>
+                        <select required>
+                            <option value="">Sélectionner</option>
+                            <option>Dakar</option>
+                            <option>Thiès</option>
+                            <option>Diourbel</option>
+                            <option>Fatick</option>
+                            <option>Kaffrine</option>
+                            <option>Kaolack</option>
+                            <option>Kédougou</option>
+                            <option>Kolda</option>
+                            <option>Louga</option>
+                            <option>Matam</option>
+                            <option>Saint-Louis</option>
+                            <option>Sédhiou</option>
+                            <option>Tambacounda</option>
+                            <option>Ziguinchor</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Quartier / Adresse exacte de départ *</label>
+                    <input type="text" placeholder="Ex: Grand Standing, Mbour, Pikine..." required>
+                </div>
+
+                <div class="row-two">
+                    <div class="control-group">
+                        <label>Type de service</label>
+                        <select>
+                            <option>Place individuelle</option>
+                            <option>Location / Course privée</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Nombre de places</label>
+                        <input type="number" value="1" min="1" max="15">
+                    </div>
+                </div>
+
+                <!-- Boutons -->
+                <div class="action-buttons">
+                    <button type="submit" class="btn btn-reserve">Confirmer la Réservation</button>
+                    <a href="https://wa.me/221785221266" class="btn btn-whatsapp" target="_blank">Réserver directement
+                        via WhatsApp</a>
+                </div>
+            </form>
+        </div>
+
     </div>
 
-</body>
+</body>// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+apiKey: "AIzaSyB4aTrP1-bKf3sgwERsd0sm5VpHU8xV5Lg",
+authDomain: "jop-pro.firebaseapp.com",
+projectId: "jop-pro",
+storageBucket: "jop-pro.firebasestorage.app",
+messagingSenderId: "639008284239",
+appId: "1:639008284239:web:ae73a62a743afcf811943a",
+measurementId: "G-XLKWTB0NPB"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = getFirestore(app);
+const form = document.querySelector('.form-grid');
+
+form.addEventListener('submit', async (e) => {
+e.preventDefault();
+
+const reservationData = {
+destinationRegion: form.querySelector('select').value,
+departAddress: form.querySelectorAll('input[type="text"]')[0].value,
+seatsCount: form.querySelector('input[type="number"]').value,
+passengerName: form.querySelectorAll('input[type="text"]')[1].value,
+phoneNumber: form.querySelector('input[type="tel"]').value,
+createdAt: new Date()
+};
+
+try {
+const docRef = await addDoc(collection(db, "reservations"), reservationData);
+alert("Réservation enregistrée avec succès !");
+form.reset();
+} catch (error) {
+console.error("Erreur lors de l'enregistrement : ", error);
+alert("Une erreur est survenue lors de la réservation.");
+}
+});
 
 </html>

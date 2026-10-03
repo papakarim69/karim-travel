@@ -1,0 +1,20 @@
+{
+    "name": "Karim Travel - Transport Privé",
+    "short_name": "Karim Travel",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#060B18",
+    "theme_color": "#E5C383",
+    "icons": [
+        {
+            "src": "karim travel.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "karim travel.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
